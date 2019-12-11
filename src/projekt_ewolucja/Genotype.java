@@ -10,12 +10,12 @@ public class Genotype {
     private static final Integer diffGenes = 8;
     private Integer[] genes;
 
-    public Genotype(){
+    public Genotype() {
         this.genes = new Integer[genotypeSize];
         this.randomGenes();
     }
 
-    public Genotype(Animal cat, Animal dog){
+    public Genotype(Animal cat, Animal dog) {
         this();
         System.arraycopy(dog.genotype.genes, 0, this.genes, 0, 21);
         System.arraycopy(cat.genotype.genes, 21, this.genes, 21, 11);
@@ -23,40 +23,40 @@ public class Genotype {
         this.Mutation();
     }
 
-    public static Genotype childGenotype(Animal cat, Animal dog){
+    public static Genotype childGenotype(Animal cat, Animal dog) {
         return new Genotype(cat, dog);
     }
 
-    public void Mutation(){
+    public void Mutation() {
         Random rand = new Random();
-        this.genes[genotypeSize-1] = rand.nextInt(diffGenes);
+        this.genes[genotypeSize - 1] = rand.nextInt(diffGenes);
     }
 
-    private void randomGenes(){
-        for(int i = 0; i < genotypeSize; i++) this.genes[i] = 0;
+    private void randomGenes() {
+        for (int i = 0; i < genotypeSize; i++) this.genes[i] = 0;
         Random rand = new Random();
-        for(int i = 0; i < 32; i++) this.genes[i] = rand.nextInt(diffGenes);
+        for (int i = 0; i < 32; i++) this.genes[i] = rand.nextInt(diffGenes);
     }
 
-    public void checkGenotypeRequirements(){
+    public void checkGenotypeRequirements() {
         int[] minimalGenes = new int[diffGenes];
-        for(int i = 0; i < genotypeSize-1; i++){
+        for (int i = 0; i < genotypeSize - 1; i++) {
             minimalGenes[this.genes[i]]++;
         }
-        for(int i = 0; i < diffGenes; i++){
-            if(minimalGenes[i] == 0) this.fixGenes(i, minimalGenes);
+        for (int i = 0; i < diffGenes; i++) {
+            if (minimalGenes[i] == 0) this.fixGenes(i, minimalGenes);
         }
     }
 
     public void fixGenes(int missingGene, int[] minimalGenes) throws IllegalArgumentException {
-        Integer[] intArray = { 0, 1, 2, 3, 4, 5, 6, 7 };
+        Integer[] intArray = {0, 1, 2, 3, 4, 5, 6, 7};
         List<Integer> intList = Arrays.asList(intArray);
         Collections.shuffle(intList);
         intList.toArray(intArray);
         //przetasowanie żeby iść losowo po tablicy genotypów
 
-        for(int i : intArray){
-            if(minimalGenes[i] > 1) {
+        for (int i : intArray) {
+            if (minimalGenes[i] > 1) {
                 minimalGenes[i]--;
                 minimalGenes[missingGene]++;
                 return;

@@ -17,7 +17,7 @@ public class Vector2d {
         return new Vector2d((this.x + other.x + WorldMap.parameters.worldWidth) % WorldMap.parameters.worldWidth, (this.y + other.y + WorldMap.parameters.worldHeight) % WorldMap.parameters.worldHeight);
     }
 
-    public static Vector2d randomVector(){
+    public static Vector2d randomVector() {
         return new Vector2d(new Random().nextInt(WorldMap.parameters.worldWidth), new Random().nextInt(WorldMap.parameters.worldHeight));
     }
 

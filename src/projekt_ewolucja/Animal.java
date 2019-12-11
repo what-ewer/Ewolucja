@@ -12,7 +12,7 @@ public class Animal {
         this.energy = energy;
         this.orientation = Direction.NORTH;
         this.map = map;
-        if(newAnimal) {
+        if (newAnimal) {
             this.genotype = new Genotype();
         } else {
             this.genotype = genes;
