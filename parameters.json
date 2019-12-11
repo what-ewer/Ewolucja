@@ -1,0 +1,14 @@
+{ 
+  "worldWidth": 50,
+  "worldHeight": 20,
+  "jungleWidth": 5,
+  "jungleHeight": 5,
+  "grassStartingEnergy": 15,
+  "growValue": 5,
+  "energyToCopulate": 20,
+  "animalsToSpawn": 10,
+  "animalInitialEnergy":100,
+  "numberOfDays": 2000,
+  "fps": 300,
+  "movementValue": 1
+}
