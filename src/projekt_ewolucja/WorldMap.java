@@ -12,6 +12,7 @@ public class WorldMap {
     public final Vector2d lowerLeftJgl;
 
     public static int deadAnimals;
+    public static int eatenGrass;
 
     public Map<Vector2d, Grass> grassMap = new HashMap<>();
     public Map<Vector2d, LinkedList<Animal>> animalMap = new HashMap<>();
@@ -25,6 +26,7 @@ public class WorldMap {
             throw new IllegalArgumentException("Rozmiar dzungli musi byc mniejszy niz mapy");
 
         deadAnimals = 0;
+        eatenGrass = 0;
 
         upperRightCorner = new Vector2d(parameters.worldWidth - 1, parameters.worldHeight - 1);
         lowerLeftCorner = new Vector2d(0, 0);
@@ -118,6 +120,7 @@ public class WorldMap {
 
     public void eatGrass(Animal dog, Grass g) {
         dog.energy += g.energyValue;
+        eatenGrass++;
         removeGrass(g);
     }
 
@@ -191,8 +194,10 @@ public class WorldMap {
             System.out.println("żywych zwierząt: " + this.animalList.size());
             System.out.println("trawy: " + this.grassMap.size());
             System.out.println("licznik śmierci: " + deadAnimals);
+            System.out.println("zjedzona trawa: " + eatenGrass);
             Thread.sleep(1000 / WorldMap.parameters.fps);
             new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+            //uzywam cls do czyszczenia konsoli na windowsie - na linuxie trzeba uzyc clear
             day++;
         }
 

@@ -24,6 +24,8 @@ public class Main {
             System.out.println("Na końcu symulacji zostało: " + polska.animalList.size() + " żywych zwierząt");
             System.out.println("Na końcu symulacji zostało: " + polska.grassMap.size() + " trawy" );
             System.out.println("Podczas symulacji zginęło: " + WorldMap.deadAnimals + " zwierząt");
+            System.out.println("Podczas symulacji zwierzęta zjadły : " + WorldMap.eatenGrass + " kępek trawy");
+
 
         } catch (IllegalArgumentException | InterruptedException | IOException ex) {
             System.out.println(ex.toString());

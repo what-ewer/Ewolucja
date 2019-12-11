@@ -11,6 +11,7 @@ public enum Direction {
     NORTH_WEST;
 
     private static final String[] dirString = new String[]{"A", "A", "A", "A", "A", "A", "A", "A"};
+    //plan był strzałki, ale utf-16 nie działało mi w konsolce windowsa :/
 
     public Integer directionToNumber() throws IllegalArgumentException {
         switch (this) {
