@@ -20,6 +20,10 @@ public class Main {
 
             polska.dayOfLife(WorldMap.parameters.numberOfDays);
             System.out.println(polska.toString());
+            System.out.println("Symulacja trwałą: " + WorldMap.parameters.numberOfDays + " dni");
+            System.out.println("Na końcu symulacji zostało: " + polska.animalList.size() + " żywych zwierząt");
+            System.out.println("Na końcu symulacji zostało: " + polska.grassMap.size() + " trawy" );
+            System.out.println("Podczas symulacji zginęło: " + WorldMap.deadAnimals + " zwierząt");
 
         } catch (IllegalArgumentException | InterruptedException | IOException ex) {
             System.out.println(ex.toString());

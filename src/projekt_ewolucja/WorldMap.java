@@ -11,7 +11,7 @@ public class WorldMap {
     public final Vector2d upperRightJgl;
     public final Vector2d lowerLeftJgl;
 
-    public int deadAnimals;
+    public static int deadAnimals;
 
     public Map<Vector2d, Grass> grassMap = new HashMap<>();
     public Map<Vector2d, LinkedList<Animal>> animalMap = new HashMap<>();
@@ -195,6 +195,7 @@ public class WorldMap {
             new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
             day++;
         }
+
     }
 
     public String toString() {
