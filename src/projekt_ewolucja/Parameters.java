@@ -15,6 +15,8 @@ public class Parameters {
     int numberOfDays;
     int fps;
     int movementValue;
+    int grassPerDay;
+    //grassPerDay -> per dzungla + step czyli dla 1 narasta 2 trawy
 
     @Override
     public String toString() {

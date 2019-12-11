@@ -11,6 +11,8 @@ public class WorldMap {
     public final Vector2d upperRightJgl;
     public final Vector2d lowerLeftJgl;
 
+    public int deadAnimals;
+
     public Map<Vector2d, Grass> grassMap = new HashMap<>();
     public Map<Vector2d, LinkedList<Animal>> animalMap = new HashMap<>();
     public List<Animal> animalList = new LinkedList<>();
@@ -21,6 +23,8 @@ public class WorldMap {
             throw new IllegalArgumentException("Wysokosc dzungli musi byc mniejszy niz mapy");
         if (p.worldWidth < p.jungleWidth)
             throw new IllegalArgumentException("Rozmiar dzungli musi byc mniejszy niz mapy");
+
+        deadAnimals = 0;
 
         upperRightCorner = new Vector2d(parameters.worldWidth - 1, parameters.worldHeight - 1);
         lowerLeftCorner = new Vector2d(0, 0);
@@ -77,6 +81,7 @@ public class WorldMap {
             if (!this.isAlive(dog)) {
                 removeAnimal(dog.position, dog);
                 toDie.add(dog);
+                deadAnimals++;
             }
         }
         animalList.removeAll(toDie);
@@ -180,11 +185,12 @@ public class WorldMap {
             moveTheAnimals();
             eatTheGrass();
             copulateAll();
-            generateGrass();
+            for(int i = 0; i < WorldMap.parameters.grassPerDay; i++) generateGrass();
             System.out.println(this.toString());
             System.out.println("dzień: " + day);
             System.out.println("żywych zwierząt: " + this.animalList.size());
             System.out.println("trawy: " + this.grassMap.size());
+            System.out.println("licznik śmierci: " + deadAnimals);
             Thread.sleep(1000 / WorldMap.parameters.fps);
             new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
             day++;

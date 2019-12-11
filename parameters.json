@@ -1,14 +1,15 @@
 { 
-  "worldWidth": 50,
-  "worldHeight": 20,
+  "worldWidth": 90,
+  "worldHeight": 40,
   "jungleWidth": 5,
   "jungleHeight": 5,
   "grassStartingEnergy": 15,
   "growValue": 5,
   "energyToCopulate": 20,
-  "animalsToSpawn": 10,
+  "animalsToSpawn": 20,
   "animalInitialEnergy":100,
   "numberOfDays": 2000,
-  "fps": 300,
-  "movementValue": 1
+  "fps": 100,
+  "movementValue": 1,
+  "grassPerDay": 5
 }
