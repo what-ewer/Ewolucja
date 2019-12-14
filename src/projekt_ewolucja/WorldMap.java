@@ -16,6 +16,7 @@ public class WorldMap {
     public int lifespan;
     public int children;
     public Integer days;
+    public int[] genotype;
 
     public Map<Vector2d, Grass> grassMap = new HashMap<>();
     public Map<Vector2d, LinkedList<Animal>> animalMap = new HashMap<>();
@@ -34,6 +35,7 @@ public class WorldMap {
         eatenGrass = 0;
         children = 0;
         days = 0;
+        genotype = new int[Genotype.getDiffGenes()];
 
         upperRightCorner = new Vector2d(parameters.worldWidth - 1, parameters.worldHeight - 1);
         lowerLeftCorner = new Vector2d(0, 0);
@@ -41,9 +43,20 @@ public class WorldMap {
         upperRightJgl = lowerLeftJgl.add(new Vector2d(parameters.jungleWidth - 1, parameters.jungleHeight - 1));
     }
 
+    public void addGenes(Animal dog){
+        Integer[] dogGenes = dog.genotype.getGenes();
+        for(int i = 0; i < Genotype.getGenotypeSize(); i++) this.genotype[dogGenes[i]]++;
+    }
+
+    public void removeGenes(Animal dog){
+        Integer[] dogGenes = dog.genotype.getGenes();
+        for(int i = 0; i < Genotype.getGenotypeSize(); i++) this.genotype[dogGenes[i]]--;
+    }
+
     public void place(Animal dog) {
         addAnimal(dog.position, dog);
         animalList.add(dog);
+        this.addGenes(dog);
     }
 
     public void addAnimal(Vector2d position, Animal dog) {
@@ -57,6 +70,12 @@ public class WorldMap {
         } else {
             animals.add(dog);
         }
+    }
+
+    public Integer getDominatingGene(){
+        Integer max = 0;
+        for(int i = 0; i < Genotype.getDiffGenes(); i++) if (this.genotype[i] > this.genotype[max]) max = i;
+        return max;
     }
 
     public void removeAnimal(Vector2d position, Animal dog) {
@@ -89,6 +108,7 @@ public class WorldMap {
         List<Animal> toDie = new LinkedList<>();
         for (Animal dog : animalList) {
             if (!this.isAlive(dog)) {
+                this.removeGenes(dog);
                 removeAnimal(dog.position, dog);
                 toDie.add(dog);
                 deadAnimals++;

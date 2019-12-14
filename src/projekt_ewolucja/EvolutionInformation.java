@@ -148,7 +148,7 @@ public class EvolutionInformation extends JPanel {
                 date = totalDays+1;
             }
         }
-
+        g.drawString("Dominujący gen: " + map.getDominatingGene().toString(), 10, 708);
 
         if(WorldMap.parameters.saveEveryN != 0){
             if (totalDays.equals(WorldMap.parameters.saveEveryN)){
