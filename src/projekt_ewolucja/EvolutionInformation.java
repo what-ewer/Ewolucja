@@ -136,14 +136,16 @@ public class EvolutionInformation extends JPanel {
             if(animal.energy.equals(0)) {
                 g.drawString("Umarło: " + date + " dnia", 10, 628);
                 g.drawString("Miało " + animal.children.toString() + " dzieci", 10, 643);
-                g.drawString("Genotyp: " + animal.genotype.toString(), 10, 658);
+                g.drawString("Przeżyło " + animal.lifespan + " dni", 10, 658);
+                g.drawString("Genotyp: " + animal.genotype.toString(), 10, 673);
             }
             else{
                 g.drawString("Położenie: " + animal.position.realCoords().toString(), 10, 628);
                 g.drawString("Ilość dzieci: " + animal.children.toString(), 10, 643);
                 g.drawString("Ilość energii: " + animal.energy.toString(), 10, 658);
-                g.drawString("Genotyp: " + animal.genotype.toString(), 10, 673);
-                date = totalDays;
+                g.drawString("Długość życia: " + animal.lifespan.toString(), 10, 673);
+                g.drawString("Genotyp: " + animal.genotype.toString(), 10, 688);
+                date = totalDays+1;
             }
         }
 
