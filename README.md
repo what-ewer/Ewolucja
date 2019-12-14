@@ -6,3 +6,5 @@ Plik tekstowy [sim1ewolucja.txt](https://github.com/what-ewer/Ewolucja/blob/mast
 
 Dodatkowe informacje:
 -zmiana w kontekście treści zadania: trawa może rosnąć zwiększając swoją wartość energii
+
+Jak działa program - wizualizacja [link yt](https://www.youtube.com/watch?v=qnEwMK_k2hI)
