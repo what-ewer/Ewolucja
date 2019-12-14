@@ -49,7 +49,7 @@ public class Animal {
 
     public Color toColor() {
         if (map.deadAnimals == 0) return new Color(224, 137, 41);
-        if (this.lifespan < (WorldMap.lifespan/map.deadAnimals)) return new Color(224, 137, 41);
+        if (this.lifespan < (this.map.lifespan/map.deadAnimals)) return new Color(224, 137, 41);
         return new Color(224, 17, 26);
     }
 }

@@ -69,17 +69,17 @@ public class EvolutionInformation extends JPanel {
         g.drawString(map.grassList.size() + " trawy", 10 , 133);
 
         g.drawString("Podczas symulacji zginęło: ", 10, 158) ;
-        g.drawString(WorldMap.deadAnimals + " zwierząt", 10 , 173);
+        g.drawString(this.map.deadAnimals + " zwierząt", 10 , 173);
 
         g.drawString("Podczas symulacji zwierzęta zjadły: ", 10, 198) ;
-        g.drawString(WorldMap.eatenGrass + " trawy", 10 , 213);
+        g.drawString(this.map.eatenGrass + " trawy", 10 , 213);
 
         g.drawString("Średnia ilość dzieci żywych zwierząt: ", 10, 238) ;
-        if(map.animalList.size() > 0) g.drawString((double)WorldMap.children/map.animalList.size() + "", 10 , 253);
+        if(map.animalList.size() > 0) g.drawString((double)this.map.children/map.animalList.size() + "", 10 , 253);
         else g.drawString("0", 10 , 253);
 
         g.drawString("Średnia długość życia zwierząt: ", 10, 278);
-        if(WorldMap.deadAnimals > 0) g.drawString((double)WorldMap.lifespan/WorldMap.deadAnimals + "", 10 , 293);
+        if(this.map.deadAnimals > 0) g.drawString((double)this.map.lifespan/this.map.deadAnimals + "", 10 , 293);
         else g.drawString("0", 10 , 293);
 
         Integer energy = 0;
@@ -140,11 +140,11 @@ public class EvolutionInformation extends JPanel {
                 writer.println("Czas trwania symulacji: " + totalDays);
                 writer.println("W danym momencie żyło: " + map.animalList.size() + " zwierząt");
                 writer.println("Na mapie było wtedy: " + map.grassList.size() + " trawy");
-                writer.println("Do tego czasu zginęło: " + WorldMap.deadAnimals + " zwierząt");
-                writer.println("Do tego czasu zwierzęta zjadły: " + WorldMap.eatenGrass + " trawy");
-                if(map.animalList.size() > 0) writer.println("W danym momencie średnia ilość dzieci wynosiła: " + (double)WorldMap.children/map.animalList.size());
+                writer.println("Do tego czasu zginęło: " + this.map.deadAnimals + " zwierząt");
+                writer.println("Do tego czasu zwierzęta zjadły: " + this.map.eatenGrass + " trawy");
+                if(map.animalList.size() > 0) writer.println("W danym momencie średnia ilość dzieci wynosiła: " + (double)this.map.children/map.animalList.size());
                 else writer.println("W danym momencie średnia ilość dzieci wynosiła: 0");
-                if(WorldMap.deadAnimals > 0) writer.println("W danym momencie średnia długość życia wynosiła: " + (double)WorldMap.lifespan/WorldMap.deadAnimals + " dni");
+                if(this.map.deadAnimals > 0) writer.println("W danym momencie średnia długość życia wynosiła: " + (double)this.map.lifespan/this.map.deadAnimals + " dni");
                 else writer.println("--do tego czasu nie umarło żadne zwierzę");
                 if(map.animalList.size() > 0) writer.println("Średni poziom energii zwierząt: " + energy/map.animalList.size());
                 else writer.println("Średni poziom energii zwierząt: 0");
@@ -158,11 +158,11 @@ public class EvolutionInformation extends JPanel {
                     out.println("Czas trwania symulacji: " + totalDays);
                     out.println("W danym momencie żyło: " + map.animalList.size() + " zwierząt");
                     out.println("Na mapie było wtedy: " + map.grassList.size() + " trawy");
-                    out.println("Do tego czasu zginęło: " + WorldMap.deadAnimals + " zwierząt");
-                    out.println("Do tego czasu zwierzęta zjadły: " + WorldMap.eatenGrass + " trawy");
-                    if(map.animalList.size() > 0) out.println("W danym momencie średnia ilość dzieci wynosiła: " + (double)WorldMap.children/map.animalList.size());
+                    out.println("Do tego czasu zginęło: " + this.map.deadAnimals + " zwierząt");
+                    out.println("Do tego czasu zwierzęta zjadły: " + this.map.eatenGrass + " trawy");
+                    if(map.animalList.size() > 0) out.println("W danym momencie średnia ilość dzieci wynosiła: " + (double)this.map.children/map.animalList.size());
                     else out.println("W danym momencie średnia ilość dzieci wynosiła: 0");
-                    if(WorldMap.deadAnimals > 0) out.println("W danym momencie średnia długość życia wynosiła: " + (double)WorldMap.lifespan/WorldMap.deadAnimals + " dni");
+                    if(this.map.deadAnimals > 0) out.println("W danym momencie średnia długość życia wynosiła: " + (double)this.map.lifespan/this.map.deadAnimals + " dni");
                     else out.println("--do tego czasu nie umarło żadne zwierzę");
                     if(map.animalList.size() > 0) out.println("Średni poziom energii zwierząt: " + energy/map.animalList.size());
                     else out.println("Średni poziom energii zwierząt: 0");

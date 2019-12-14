@@ -11,10 +11,10 @@ public class WorldMap {
     public final Vector2d upperRightJgl;
     public final Vector2d lowerLeftJgl;
 
-    public static int deadAnimals;
-    public static int eatenGrass;
-    public static int lifespan;
-    public static int children;
+    public int deadAnimals;
+    public int eatenGrass;
+    public int lifespan;
+    public int children;
     public Integer days;
 
     public Map<Vector2d, Grass> grassMap = new HashMap<>();
