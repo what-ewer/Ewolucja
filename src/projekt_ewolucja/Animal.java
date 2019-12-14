@@ -1,17 +1,24 @@
 package projekt_ewolucja;
 
+import java.awt.*;
+
 public class Animal {
     public Vector2d position;
     public WorldMap map;
     public Integer energy;
     public Genotype genotype;
     public Direction orientation;
+    public Integer lifespan;
+    public Integer children;
 
     public Animal(WorldMap map, Vector2d initialPosition, Integer energy, Genotype genes, boolean newAnimal) {
         this.position = initialPosition;
         this.energy = energy;
         this.orientation = Direction.NORTH;
         this.map = map;
+        this.lifespan = 0;
+        this.children = 0;
+
         if (newAnimal) {
             this.genotype = new Genotype();
         } else {
@@ -38,5 +45,11 @@ public class Animal {
     @Override
     public String toString() {
         return this.orientation.toString();
+    }
+
+    public Color toColor() {
+        if (map.deadAnimals == 0) return new Color(224, 137, 41);
+        if (this.lifespan < (WorldMap.lifespan/map.deadAnimals)) return new Color(224, 137, 41);
+        return new Color(224, 17, 26);
     }
 }

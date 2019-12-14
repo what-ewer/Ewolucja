@@ -1,21 +1,23 @@
 package projekt_ewolucja;
 
 public class Parameters {
-    int worldWidth;
-    int worldHeight;
-    int jungleWidth;
-    int jungleHeight;
-    int grassStartingEnergy;
+    Integer worldWidth;
+    Integer worldHeight;
+    Integer jungleWidth;
+    Integer jungleHeight;
+    Integer grassStartingEnergy;
     //ile energii daje trawa po wyrośnięciu
-    int growValue;
+    Integer growValue;
     //wzrost wartości energii trawy gdy wyrośnie w tym samym miejscu
-    int energyToCopulate;
-    int animalsToSpawn;
-    int animalInitialEnergy;
-    int numberOfDays;
-    int fps;
-    int movementValue;
-    int grassPerDay;
+    Integer energyToCopulate;
+    Integer animalsToSpawn;
+    Integer animalInitialEnergy;
+    Integer numberOfDays;
+    Integer refreshTime;
+    Integer movementValue;
+    Integer grassPerDay;
+    Integer saveEveryN;
+    Integer twoSimulations;
     //grassPerDay -> per dzungla + step czyli dla 1 narasta 2 trawy
 
     @Override
@@ -31,8 +33,11 @@ public class Parameters {
                 ", animalsToSpawn=" + animalsToSpawn +
                 ", animalInitialEnergy=" + animalInitialEnergy +
                 ", numberOfDays=" + numberOfDays +
-                ", fps=" + fps +
+                ", refreshTime=" + refreshTime +
                 ", movementValue=" + movementValue +
+                ", grassPerDay=" + grassPerDay +
+                ", saveEveryN=" + saveEveryN +
+                ", twoSimulations=" + twoSimulations +
                 '}';
     }
 }

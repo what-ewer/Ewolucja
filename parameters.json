@@ -3,13 +3,18 @@
   "worldHeight": 40,
   "jungleWidth": 5,
   "jungleHeight": 5,
-  "grassStartingEnergy": 15,
-  "growValue": 5,
+  "numberOfDays": 2000,
+  "refreshTime": 100,
+  
+  "animalInitialEnergy":100,
   "energyToCopulate": 20,
   "animalsToSpawn": 20,
-  "animalInitialEnergy":100,
-  "numberOfDays": 2000,
-  "fps": 100,
   "movementValue": 1,
-  "grassPerDay": 5
+  
+  "grassStartingEnergy": 15,
+  "growValue": 5,
+  "grassPerDay": 5,
+  
+  "saveEveryN":0,
+  "twoSimulations": 0
 }

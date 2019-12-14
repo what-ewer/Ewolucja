@@ -1,5 +1,7 @@
 package projekt_ewolucja;
 
+import java.awt.*;
+
 public class Grass {
     public Vector2d grassPosition;
     public Integer energyValue;
@@ -14,12 +16,17 @@ public class Grass {
         this.energyValue = energy;
     }
 
-    public Grass grow() {
-        return new Grass(this.grassPosition, this.energyValue + WorldMap.parameters.growValue);
+    public void grow() {
+        this.energyValue += WorldMap.parameters.growValue;
     }
 
     @Override
     public String toString() {
         return "*";
+    }
+
+    public Color toColor() {
+        if (energyValue.equals(WorldMap.parameters.grassStartingEnergy)) return new Color(112, 224, 39);
+        return new Color(9, 224, 19);
     }
 }

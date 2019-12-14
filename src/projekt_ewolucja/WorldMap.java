@@ -13,10 +13,14 @@ public class WorldMap {
 
     public static int deadAnimals;
     public static int eatenGrass;
+    public static int lifespan;
+    public static int children;
 
     public Map<Vector2d, Grass> grassMap = new HashMap<>();
     public Map<Vector2d, LinkedList<Animal>> animalMap = new HashMap<>();
     public List<Animal> animalList = new LinkedList<>();
+    public List<Grass> grassList = new LinkedList<>();
+
 
     public WorldMap(Parameters p) throws IllegalArgumentException {
         parameters = p;
@@ -27,6 +31,7 @@ public class WorldMap {
 
         deadAnimals = 0;
         eatenGrass = 0;
+        children = 0;
 
         upperRightCorner = new Vector2d(parameters.worldWidth - 1, parameters.worldHeight - 1);
         lowerLeftCorner = new Vector2d(0, 0);
@@ -60,6 +65,7 @@ public class WorldMap {
 
     public void removeGrass(Grass g) {
         grassMap.remove(g.grassPosition);
+        grassList.remove(g);
     }
 
     public boolean isGrass(Vector2d pos) {
@@ -84,6 +90,8 @@ public class WorldMap {
                 removeAnimal(dog.position, dog);
                 toDie.add(dog);
                 deadAnimals++;
+                children -= dog.children;
+                lifespan +=  dog.lifespan;
             }
         }
         animalList.removeAll(toDie);
@@ -110,6 +118,7 @@ public class WorldMap {
         dog.position = oldCoords.add(dog.orientation.orientationToVector());
         addAnimal(oldCoords.add(dog.orientation.orientationToVector()), dog);
         dog.energy -= WorldMap.parameters.movementValue;
+        dog.lifespan++;
     }
 
     public void eatTheGrass() {
@@ -141,6 +150,9 @@ public class WorldMap {
                                 Genotype newGenes = Genotype.childGenotype(cat, dog);
                                 Animal bird = cat.copulation(dog, posTmp, newGenes);
                                 place(bird);
+                                cat.children++;
+                                dog.children++;
+                                children+=2;
                                 break;
                             }
                     }
@@ -159,9 +171,11 @@ public class WorldMap {
         Random rand = new Random();
         Vector2d randomPos = new Vector2d(lowerLeftJgl.x + rand.nextInt(parameters.jungleWidth), lowerLeftJgl.y + rand.nextInt(parameters.jungleHeight));
         if (this.grassMap.containsKey(randomPos)) {
-            this.grassMap.replace(randomPos, this.grassMap.get(randomPos).grow());
+            this.grassMap.get(randomPos).grow();
         } else {
-            this.grassMap.put(randomPos, new Grass(randomPos));
+            Grass g = new Grass(randomPos);
+            this.grassMap.put(randomPos, g);
+            grassList.add(g);
         }
     }
 
@@ -172,35 +186,16 @@ public class WorldMap {
             randomPos = new Vector2d(rand.nextInt(parameters.worldWidth), rand.nextInt(parameters.worldHeight));
         }
         if (this.grassMap.containsKey(randomPos))
-            this.grassMap.replace(randomPos, this.grassMap.get(randomPos).grow());
-        else
-            this.grassMap.put(randomPos, new Grass(randomPos));
+            this.grassMap.get(randomPos).grow();
+        else{
+            Grass g = new Grass(randomPos);
+            this.grassMap.put(randomPos, g);
+            grassList.add(g);
+        }
     }
 
     public boolean isStep(Vector2d position) {
         return !(position.precedes(upperRightJgl) && position.follows(lowerLeftJgl));
-    }
-
-    public void dayOfLife(Integer days) throws InterruptedException, IOException {
-        int day = 0;
-        while (day < days) {
-            removeTheDead();
-            moveTheAnimals();
-            eatTheGrass();
-            copulateAll();
-            for(int i = 0; i < WorldMap.parameters.grassPerDay; i++) generateGrass();
-            System.out.println(this.toString());
-            System.out.println("dzień: " + day);
-            System.out.println("żywych zwierząt: " + this.animalList.size());
-            System.out.println("trawy: " + this.grassMap.size());
-            System.out.println("licznik śmierci: " + deadAnimals);
-            System.out.println("zjedzona trawa: " + eatenGrass);
-            Thread.sleep(1000 / WorldMap.parameters.fps);
-            new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-            //uzywam cls do czyszczenia konsoli na windowsie - na linuxie trzeba uzyc clear
-            day++;
-        }
-
     }
 
     public String toString() {

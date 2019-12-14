@@ -1,10 +1,14 @@
 package projekt_ewolucja;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.Serializable;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
 import com.google.gson.*;
+
+import javax.swing.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -12,22 +16,17 @@ public class Main {
             String parameters = Files.readString(Paths.get("parameters.json"));
             Parameters pars = new Gson().fromJson(parameters, Parameters.class);
 
-            WorldMap polska = new WorldMap(pars);
+            SwingUtilities.invokeLater(new Runnable() {
+                @Override
+                public void run() {
+                    JFrame settings = new SettingsMenu("Settings" , pars);
+                    settings.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                    settings.setVisible(true);
+                    settings.setSize(400,600);
+                }
+            });
 
-            for (int i = 0; i < WorldMap.parameters.animalsToSpawn; i++) {
-                polska.place(new Animal(polska, Vector2d.randomVector(), WorldMap.parameters.animalInitialEnergy, null, true));
-            }
-
-            polska.dayOfLife(WorldMap.parameters.numberOfDays);
-            System.out.println(polska.toString());
-            System.out.println("Symulacja trwałą: " + WorldMap.parameters.numberOfDays + " dni");
-            System.out.println("Na końcu symulacji zostało: " + polska.animalList.size() + " żywych zwierząt");
-            System.out.println("Na końcu symulacji zostało: " + polska.grassMap.size() + " trawy" );
-            System.out.println("Podczas symulacji zginęło: " + WorldMap.deadAnimals + " zwierząt");
-            System.out.println("Podczas symulacji zwierzęta zjadły : " + WorldMap.eatenGrass + " kępek trawy");
-
-
-        } catch (IllegalArgumentException | InterruptedException | IOException ex) {
+        } catch (IllegalArgumentException | IOException ex) {
             System.out.println(ex.toString());
         }
 
