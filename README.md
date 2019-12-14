@@ -8,3 +8,4 @@ Dodatkowe informacje:
 -zmiana w kontekście treści zadania: trawa może rosnąć zwiększając swoją wartość energii
 
 Jak działa program - wizualizacja [link yt](https://www.youtube.com/watch?v=qnEwMK_k2hI)
+^ wizualizacja nie zawiera wszystkich dodanych później możliwości
