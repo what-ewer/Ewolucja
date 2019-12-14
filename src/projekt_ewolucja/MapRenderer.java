@@ -37,20 +37,20 @@ public class MapRenderer extends JPanel implements MouseMotionListener {
 
         g.setColor(new Color(0, 160, 36));
         g.fillRect(map.lowerLeftJgl.x * widthScale,
-                38+map.lowerLeftJgl.y * heightScale,
+                map.lowerLeftJgl.y * heightScale,
                 WorldMap.parameters.jungleWidth * widthScale,
                  WorldMap.parameters.jungleHeight * heightScale);
 
         for (Grass grass : map.grassList) {
             g.setColor(grass.toColor());
-            int y = (WorldMap.parameters.worldHeight - (grass.grassPosition).y) * heightScale;
+            int y = (grass.grassPosition).y * heightScale;
             int x = (grass.grassPosition).x * widthScale;
             g.fillOval(x, y, widthScale, heightScale);
         }
 
         for (Animal a : map.animalList) {
             g.setColor(a.toColor());
-            int y = (WorldMap.parameters.worldHeight - (a.position).y) * heightScale;
+            int y = (a.position).y * heightScale;
             int x = (a.position).x * widthScale;
             g.fillOval(x, y, widthScale, heightScale);
         }
