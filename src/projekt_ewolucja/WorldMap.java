@@ -199,8 +199,4 @@ public class WorldMap {
     public boolean isStep(Vector2d position) {
         return !(position.precedes(upperRightJgl) && position.follows(lowerLeftJgl));
     }
-
-    public String toString() {
-        return new MapVisualizer(this).draw(lowerLeftCorner, upperRightCorner);
-    }
 }

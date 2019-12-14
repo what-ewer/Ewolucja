@@ -97,6 +97,36 @@ public class EvolutionInformation extends JPanel {
         } else if (this.what.equals("trawę")){
             g.drawString("Wartość energii trawy: "+ this.grassEnergy, 10 , 388);
         }
+        g.drawString("Legenda:",10,458);
+        g.setColor(new Color(112, 224, 39));
+        g.fillOval(10, 473, 10, 10);
+        g.setColor(Color.black);
+        g.drawString("Trawa z minimalną energią", 30, 483) ;
+
+        g.setColor(new Color(9, 224, 19));
+        g.fillOval(10, 493, 10, 10);
+        g.setColor(Color.black);
+        g.drawString("Trawa z większą energią", 30, 503) ;
+
+        g.setColor(new Color(224, 137, 41));
+        g.fillOval(10, 513, 10, 10);
+        g.setColor(Color.black);
+        g.drawString("Zwierzę z energią mniejszą niż avg", 30, 523) ;
+
+        g.setColor(new Color(224, 17, 26));
+        g.fillOval(10, 533, 10, 10);
+        g.setColor(Color.black);
+        g.drawString("Zwierzę z energią większą niż avg", 30, 543) ;
+
+        g.setColor(new Color(185, 224, 111));
+        g.fillRect(10, 553, 10, 10);
+        g.setColor(Color.black);
+        g.drawString("Mapa sawanny", 30, 563) ;
+
+        g.setColor(new Color(0, 160, 36));
+        g.fillRect(10, 573, 10, 10);
+        g.setColor(Color.black);
+        g.drawString("Mapa dżungli", 30, 583) ;
 
         if(WorldMap.parameters.saveEveryN != 0){
             if (totalDays.equals(WorldMap.parameters.saveEveryN)){
