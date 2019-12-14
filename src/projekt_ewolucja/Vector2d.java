@@ -51,6 +51,10 @@ public class Vector2d {
         };
     }
 
+    public Vector2d realCoords(){
+        return new Vector2d(this.x, WorldMap.parameters.worldHeight-this.y);
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(x, y);

@@ -81,6 +81,8 @@ public class MapRenderer extends JPanel implements MouseMotionListener {
     }
 
     public void mouseDragged(MouseEvent e) {
-
+        Vector2d position = new Vector2d(e.getX()/Math.round(getWidth() / WorldMap.parameters.worldWidth),e.getY()/Math.round(getHeight() / WorldMap.parameters.worldHeight));
+        Vector2d displayPos = new Vector2d(e.getX()/Math.round(getWidth() / WorldMap.parameters.worldWidth),WorldMap.parameters.worldHeight - e.getY()/Math.round(getHeight() / WorldMap.parameters.worldHeight));
+        if((this.map.animalMap.get(position) != null && !this.map.animalMap.get(position).isEmpty()))  evolutionInformation.animal = map.animalMap.get(position).getFirst();
     }
 }

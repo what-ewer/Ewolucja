@@ -25,6 +25,8 @@ public class EvolutionInformation extends JPanel {
     public String animalEnergy;
     public String animalChildren;
     public String grassEnergy;
+    public Animal animal;
+    public Integer date;
 
     public EvolutionInformation(WorldMap map, Simulation simulation) {
         this.map = map;
@@ -50,6 +52,7 @@ public class EvolutionInformation extends JPanel {
         animalEnergy = "0";
         animalChildren = "0";
         grassEnergy = "0";
+        animal = null;
         pos = new Vector2d(0,0).toString();
     }
 
@@ -127,6 +130,23 @@ public class EvolutionInformation extends JPanel {
         g.fillRect(10, 573, 10, 10);
         g.setColor(Color.black);
         g.drawString("Mapa dżungli", 30, 583) ;
+
+        if(animal != null) {
+            g.drawString("Obserwowane zwierzę: ", 10 , 613);
+            if(animal.energy.equals(0)) {
+                g.drawString("Umarło: " + date + " dnia", 10, 628);
+                g.drawString("Miało " + animal.children.toString() + " dzieci", 10, 643);
+                g.drawString("Genotyp: " + animal.genotype.toString(), 10, 658);
+            }
+            else{
+                g.drawString("Położenie: " + animal.position.realCoords().toString(), 10, 628);
+                g.drawString("Ilość dzieci: " + animal.children.toString(), 10, 643);
+                g.drawString("Ilość energii: " + animal.energy.toString(), 10, 658);
+                g.drawString("Genotyp: " + animal.genotype.toString(), 10, 673);
+                date = totalDays;
+            }
+        }
+
 
         if(WorldMap.parameters.saveEveryN != 0){
             if (totalDays.equals(WorldMap.parameters.saveEveryN)){
