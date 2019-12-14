@@ -57,9 +57,11 @@ public class MapRenderer extends JPanel implements MouseMotionListener {
     }
 
     public void mouseMoved(MouseEvent e) {
-        Vector2d position = new Vector2d(e.getX()/Math.round(getWidth() / WorldMap.parameters.worldWidth),WorldMap.parameters.worldHeight - e.getY()/Math.round(getHeight() / WorldMap.parameters.worldHeight));
+        Vector2d position = new Vector2d(e.getX()/Math.round(getWidth() / WorldMap.parameters.worldWidth),e.getY()/Math.round(getHeight() / WorldMap.parameters.worldHeight));
+        Vector2d displayPos = new Vector2d(e.getX()/Math.round(getWidth() / WorldMap.parameters.worldWidth),WorldMap.parameters.worldHeight - e.getY()/Math.round(getHeight() / WorldMap.parameters.worldHeight));
         if(map.objectAt(position) != null) {
-            evolutionInformation.l.setText(position.toString());
+            evolutionInformation.l.setText(displayPos.toString());
+            evolutionInformation.pos = displayPos.toString();
             evolutionInformation.what = "trawę";
             if((this.map.animalMap.get(position) != null && !this.map.animalMap.get(position).isEmpty())) {
                 Animal temp = this.map.animalMap.get(position).getFirst();
@@ -71,8 +73,8 @@ public class MapRenderer extends JPanel implements MouseMotionListener {
 
         }
         else {
-            evolutionInformation.l.setText(position.toString());
-            evolutionInformation.pos = position.toString();
+            evolutionInformation.l.setText(displayPos.toString());
+            evolutionInformation.pos = displayPos.toString();
             if(map.isStep(position)) evolutionInformation.what = "step";
             else evolutionInformation.what = "dżunglę";
         }
