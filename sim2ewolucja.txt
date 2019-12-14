@@ -1,121 +1,121 @@
 Czas trwania symulacji: 100
-W danym momencie żyło: 21 zwierząt
-Na mapie było wtedy: 637 trawy
-Do tego czasu zginęło: 12 zwierząt
-Do tego czasu zwierzęta zjadły: 80 trawy
-W danym momencie średnia ilość dzieci wynosiła: 0.38095238095238093
-W danym momencie średnia długość życia wynosiła: 65.5 dni
-Średni poziom energii zwierząt: 29
+W danym momencie żyło: 19 zwierząt
+Na mapie było wtedy: 657 trawy
+Do tego czasu zginęło: 9 zwierząt
+Do tego czasu zwierzęta zjadły: 118 trawy
+W danym momencie średnia ilość dzieci wynosiła: 0.05263157894736842
+W danym momencie średnia długość życia wynosiła: 72.66666666666667 dni
+Średni poziom energii zwierząt: 30
 
 
 
 Czas trwania symulacji: 200
-W danym momencie żyło: 10 zwierząt
-Na mapie było wtedy: 1015 trawy
-Do tego czasu zginęło: 29 zwierząt
-Do tego czasu zwierzęta zjadły: 260 trawy
-W danym momencie średnia ilość dzieci wynosiła: 0.2
-W danym momencie średnia długość życia wynosiła: 94.86206896551724 dni
-Średni poziom energii zwierząt: 241
+W danym momencie żyło: 4 zwierząt
+Na mapie było wtedy: 1104 trawy
+Do tego czasu zginęło: 28 zwierząt
+Do tego czasu zwierzęta zjadły: 179 trawy
+W danym momencie średnia ilość dzieci wynosiła: 0.5
+W danym momencie średnia długość życia wynosiła: 108.75 dni
+Średni poziom energii zwierząt: 73
+
+
+
+Czas trwania symulacji: 200
+W danym momencie żyło: 4 zwierząt
+Na mapie było wtedy: 1104 trawy
+Do tego czasu zginęło: 28 zwierząt
+Do tego czasu zwierzęta zjadły: 179 trawy
+W danym momencie średnia ilość dzieci wynosiła: 0.5
+W danym momencie średnia długość życia wynosiła: 108.75 dni
+Średni poziom energii zwierząt: 73
 
 
 
 Czas trwania symulacji: 300
-W danym momencie żyło: 10 zwierząt
-Na mapie było wtedy: 1417 trawy
-Do tego czasu zginęło: 32 zwierząt
-Do tego czasu zwierzęta zjadły: 322 trawy
-W danym momencie średnia ilość dzieci wynosiła: 0.7
-W danym momencie średnia długość życia wynosiła: 108.125 dni
-Średni poziom energii zwierząt: 274
+W danym momencie żyło: 3 zwierząt
+Na mapie było wtedy: 1503 trawy
+Do tego czasu zginęło: 29 zwierząt
+Do tego czasu zwierzęta zjadły: 204 trawy
+W danym momencie średnia ilość dzieci wynosiła: 0.6666666666666666
+W danym momencie średnia długość życia wynosiła: 112.24137931034483 dni
+Średni poziom energii zwierząt: 176
 
 
 
 Czas trwania symulacji: 400
-W danym momencie żyło: 131 zwierząt
-Na mapie było wtedy: 1554 trawy
-Do tego czasu zginęło: 98 zwierząt
-Do tego czasu zwierzęta zjadły: 709 trawy
-W danym momencie średnia ilość dzieci wynosiła: 2.0916030534351147
-W danym momencie średnia długość życia wynosiła: 57.275510204081634 dni
-Średni poziom energii zwierząt: 60
+W danym momencie żyło: 3 zwierząt
+Na mapie było wtedy: 1889 trawy
+Do tego czasu zginęło: 29 zwierząt
+Do tego czasu zwierzęta zjadły: 234 trawy
+W danym momencie średnia ilość dzieci wynosiła: 0.6666666666666666
+W danym momencie średnia długość życia wynosiła: 112.24137931034483 dni
+Średni poziom energii zwierząt: 235
 
 
 
 Czas trwania symulacji: 500
-W danym momencie żyło: 101 zwierząt
-Na mapie było wtedy: 1598 trawy
-Do tego czasu zginęło: 476 zwierząt
-Do tego czasu zwierzęta zjadły: 1564 trawy
-W danym momencie średnia ilość dzieci wynosiła: 2.6732673267326734
-W danym momencie średnia długość życia wynosiła: 41.52521008403362 dni
-Średni poziom energii zwierząt: 47
+W danym momencie żyło: 3 zwierząt
+Na mapie było wtedy: 2234 trawy
+Do tego czasu zginęło: 29 zwierząt
+Do tego czasu zwierzęta zjadły: 265 trawy
+W danym momencie średnia ilość dzieci wynosiła: 0.6666666666666666
+W danym momencie średnia długość życia wynosiła: 112.24137931034483 dni
+Średni poziom energii zwierząt: 295
 
 
 
 Czas trwania symulacji: 600
-W danym momencie żyło: 101 zwierząt
-Na mapie było wtedy: 1647 trawy
-Do tego czasu zginęło: 625 zwierząt
-Do tego czasu zwierzęta zjadły: 2404 trawy
-W danym momencie średnia ilość dzieci wynosiła: 2.762376237623762
-W danym momencie średnia długość życia wynosiła: 46.2624 dni
-Średni poziom energii zwierząt: 64
+W danym momencie żyło: 3 zwierząt
+Na mapie było wtedy: 2543 trawy
+Do tego czasu zginęło: 34 zwierząt
+Do tego czasu zwierzęta zjadły: 358 trawy
+W danym momencie średnia ilość dzieci wynosiła: 0.0
+W danym momencie średnia długość życia wynosiła: 113.82352941176471 dni
+Średni poziom energii zwierząt: 475
 
 
 
 Czas trwania symulacji: 700
-W danym momencie żyło: 109 zwierząt
-Na mapie było wtedy: 1690 trawy
-Do tego czasu zginęło: 732 zwierząt
-Do tego czasu zwierzęta zjadły: 3210 trawy
-W danym momencie średnia ilość dzieci wynosiła: 2.4220183486238533
-W danym momencie średnia długość życia wynosiła: 49.974043715846996 dni
-Średni poziom energii zwierząt: 81
+W danym momencie żyło: 3 zwierząt
+Na mapie było wtedy: 2855 trawy
+Do tego czasu zginęło: 34 zwierząt
+Do tego czasu zwierzęta zjadły: 403 trawy
+W danym momencie średnia ilość dzieci wynosiła: 0.0
+W danym momencie średnia długość życia wynosiła: 113.82352941176471 dni
+Średni poziom energii zwierząt: 611
 
 
 
 Czas trwania symulacji: 800
-W danym momencie żyło: 105 zwierząt
-Na mapie było wtedy: 1668 trawy
-Do tego czasu zginęło: 870 zwierząt
-Do tego czasu zwierzęta zjadły: 4112 trawy
-W danym momencie średnia ilość dzieci wynosiła: 2.6666666666666665
-W danym momencie średnia długość życia wynosiła: 52.219540229885055 dni
-Średni poziom energii zwierząt: 100
+W danym momencie żyło: 3 zwierząt
+Na mapie było wtedy: 3134 trawy
+Do tego czasu zginęło: 34 zwierząt
+Do tego czasu zwierzęta zjadły: 450 trawy
+W danym momencie średnia ilość dzieci wynosiła: 0.0
+W danym momencie średnia długość życia wynosiła: 113.82352941176471 dni
+Średni poziom energii zwierząt: 760
 
 
 
 Czas trwania symulacji: 900
-W danym momencie żyło: 147 zwierząt
-Na mapie było wtedy: 1609 trawy
-Do tego czasu zginęło: 993 zwierząt
-Do tego czasu zwierzęta zjadły: 5046 trawy
-W danym momencie średnia ilość dzieci wynosiła: 2.4489795918367347
-W danym momencie średnia długość życia wynosiła: 54.863041289023165 dni
-Średni poziom energii zwierząt: 85
+W danym momencie żyło: 3 zwierząt
+Na mapie było wtedy: 3368 trawy
+Do tego czasu zginęło: 34 zwierząt
+Do tego czasu zwierzęta zjadły: 525 trawy
+W danym momencie średnia ilość dzieci wynosiła: 0.0
+W danym momencie średnia długość życia wynosiła: 113.82352941176471 dni
+Średni poziom energii zwierząt: 1021
 
 
 
 Czas trwania symulacji: 1000
-W danym momencie żyło: 155 zwierząt
-Na mapie było wtedy: 1486 trawy
-Do tego czasu zginęło: 1174 zwierząt
-Do tego czasu zwierzęta zjadły: 6081 trawy
-W danym momencie średnia ilość dzieci wynosiła: 2.8
-W danym momencie średnia długość życia wynosiła: 56.38415672913118 dni
-Średni poziom energii zwierząt: 84
-
-
-
-Czas trwania symulacji: 1100
-W danym momencie żyło: 138 zwierząt
-Na mapie było wtedy: 1395 trawy
-Do tego czasu zginęło: 1344 zwierząt
-Do tego czasu zwierzęta zjadły: 7046 trawy
-W danym momencie średnia ilość dzieci wynosiła: 2.7246376811594204
-W danym momencie średnia długość życia wynosiła: 59.674107142857146 dni
-Średni poziom energii zwierząt: 95
+W danym momencie żyło: 3 zwierząt
+Na mapie było wtedy: 3608 trawy
+Do tego czasu zginęło: 35 zwierząt
+Do tego czasu zwierzęta zjadły: 650 trawy
+W danym momencie średnia ilość dzieci wynosiła: 0.0
+W danym momencie średnia długość życia wynosiła: 118.57142857142857 dni
+Średni poziom energii zwierząt: 1263
 
 
 

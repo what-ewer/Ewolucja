@@ -36,6 +36,7 @@ public class Genotype {
         for (int i = 0; i < genotypeSize; i++) this.genes[i] = 0;
         Random rand = new Random();
         for (int i = 0; i < 32; i++) this.genes[i] = rand.nextInt(diffGenes);
+        checkGenotypeRequirements();
     }
 
     public void checkGenotypeRequirements() {
@@ -57,8 +58,15 @@ public class Genotype {
 
         for (int i : intArray) {
             if (minimalGenes[i] > 1) {
+                for (int j=0;j<genotypeSize;j++){
+                    if (minimalGenes[this.genes[j]] > 1){
+                        this.genes[j] = missingGene;
+                        break;
+                    }
+                }
                 minimalGenes[i]--;
                 minimalGenes[missingGene]++;
+
                 return;
             }
         }
