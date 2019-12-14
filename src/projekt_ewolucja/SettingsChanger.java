@@ -20,7 +20,7 @@ public class SettingsChanger extends JPanel {
     public JLabel numberOfDays;
     public JLabel refreshTime;
     public JLabel grassStartingValue;
-    public  JLabel growValue;
+    public JLabel growValue;
     public JLabel grassPerDay;
     public JLabel animalsToSpawn;
     public JLabel animalInitialEnergy;
@@ -261,14 +261,14 @@ public class SettingsChanger extends JPanel {
                 parameters.saveEveryN = Integer.parseInt(saveEveryNField.getText());
                 parameters.twoSimulations = Integer.parseInt(twoSimulationsField.getText());
 
-                WorldMap polska = new WorldMap(parameters);
+                WorldMap map1 = new WorldMap(parameters);
 
-                Simulation sim = new Simulation(polska);
+                Simulation sim = new Simulation(map1, "sim1");
                 sim.startSimulation();
 
                 if(parameters.twoSimulations.equals(1)){
-                    WorldMap usa = new WorldMap(parameters);
-                    Simulation sim2 = new Simulation(usa);
+                    WorldMap map2 = new WorldMap(parameters);
+                    Simulation sim2 = new Simulation(map2, "sim2");
                     sim2.startSimulation();
                     GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
                     sim2.frame.setLocation((int) (ge.getCenterPoint().getX()),0);

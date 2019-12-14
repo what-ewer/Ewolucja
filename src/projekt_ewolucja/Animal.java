@@ -44,7 +44,7 @@ public class Animal {
 
     @Override
     public String toString() {
-        return this.orientation.toString();
+        return (this.position.toString() + "\nIlość dzieci: " + this.children + "\nIlość energii: " + this.energy);
     }
 
     public Color toColor() {

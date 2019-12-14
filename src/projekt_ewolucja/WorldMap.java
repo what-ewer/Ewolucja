@@ -15,6 +15,7 @@ public class WorldMap {
     public static int eatenGrass;
     public static int lifespan;
     public static int children;
+    public Integer days;
 
     public Map<Vector2d, Grass> grassMap = new HashMap<>();
     public Map<Vector2d, LinkedList<Animal>> animalMap = new HashMap<>();
@@ -32,6 +33,7 @@ public class WorldMap {
         deadAnimals = 0;
         eatenGrass = 0;
         children = 0;
+        days = 0;
 
         upperRightCorner = new Vector2d(parameters.worldWidth - 1, parameters.worldHeight - 1);
         lowerLeftCorner = new Vector2d(0, 0);
@@ -79,8 +81,8 @@ public class WorldMap {
     public Object objectAt(Vector2d position) {
         if (this.animalMap.get(position) != null && !this.animalMap.get(position).isEmpty())
             return this.animalMap.get(position).get(0);
-
-        return this.grassMap.get(position);
+        if (this.grassMap.containsKey(position)) return this.grassMap.get(position);
+        return null;
     }
 
     public void removeTheDead() {

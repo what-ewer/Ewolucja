@@ -1,6 +1,7 @@
 package projekt_ewolucja;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,6 +18,13 @@ public class EvolutionInformation extends JPanel {
     public WorldMap map;
     public Simulation simulation;
     public Integer totalDays;
+    public JLabel l;
+    public String pos;
+    public String what;
+    public String genotype;
+    public String animalEnergy;
+    public String animalChildren;
+    public String grassEnergy;
 
     public EvolutionInformation(WorldMap map, Simulation simulation) {
         this.map = map;
@@ -33,6 +41,16 @@ public class EvolutionInformation extends JPanel {
             }
         });
         this.add(pauseButton, BorderLayout.SOUTH);
+
+        l = new JLabel("temp");
+        this.add(l);
+
+        what = "Nic";
+        genotype = "";
+        animalEnergy = "0";
+        animalChildren = "0";
+        grassEnergy = "0";
+        pos = new Vector2d(0,0).toString();
     }
 
     @Override
@@ -40,7 +58,6 @@ public class EvolutionInformation extends JPanel {
         super.paintComponent(g);
         this.setSize((int) (simulation.frame.getWidth() * 0.3), simulation.frame.getHeight() - 38);
         this.setLocation((int)(simulation.frame.getWidth() * 0.7), 0);
-        totalDays++;
 
         g.drawString("Symulacja trwa już: ", 10, 38) ;
         g.drawString(totalDays + " dni", 10 , 53);
@@ -71,11 +88,21 @@ public class EvolutionInformation extends JPanel {
         if(map.animalList.size() > 0) g.drawString((double)energy/map.animalList.size() + "", 10 , 333);
         else g.drawString("0", 10 , 333);
 
+        g.drawString("Kursor wskazuje na: " + this.what, 10, 358) ;
+        g.drawString("Koordynaty: "+ this.pos, 10 , 373);
+        if(this.what.equals("zwierzę")){
+            g.drawString("Genotyp zwierzęcia: "+ this.genotype, 10 , 388);
+            g.drawString("Ilość dzieci: "+ this.animalChildren, 10 , 403);
+            g.drawString("Ilość energii: "+ this.animalEnergy, 10 , 418);
+        } else if (this.what.equals("trawę")){
+            g.drawString("Wartość energii trawy: "+ this.grassEnergy, 10 , 388);
+        }
+
         if(WorldMap.parameters.saveEveryN != 0){
-            if (totalDays == WorldMap.parameters.saveEveryN ){
+            if (totalDays.equals(WorldMap.parameters.saveEveryN)){
                 PrintWriter writer = null;
                 try {
-                    writer = new PrintWriter("ewolucja.txt", "UTF-8");
+                    writer = new PrintWriter(this.simulation.simulationName + "ewolucja.txt", "UTF-8");
                 } catch (FileNotFoundException | UnsupportedEncodingException e) {
                     e.printStackTrace();
                 }
@@ -94,7 +121,7 @@ public class EvolutionInformation extends JPanel {
                 writer.println("\n\n");
                 writer.close();
             } else if (totalDays % WorldMap.parameters.saveEveryN == 0){
-                try(FileWriter fw = new FileWriter("ewolucja.txt", true);
+                try(FileWriter fw = new FileWriter(this.simulation.simulationName + "ewolucja.txt", true);
                     BufferedWriter bw = new BufferedWriter(fw);
                     PrintWriter out = new PrintWriter(bw))
                 {

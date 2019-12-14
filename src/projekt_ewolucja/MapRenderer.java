@@ -1,16 +1,25 @@
 package projekt_ewolucja;
 
 import javax.swing.*;
+import javax.swing.text.Position;
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 
-public class MapRenderer extends JPanel {
+public class MapRenderer extends JPanel implements MouseMotionListener {
 
     public WorldMap map;
     public Simulation simulation;
+    public EvolutionInformation evolutionInformation;
 
     public MapRenderer(WorldMap map, Simulation sim) {
         this.map = map;
         this.simulation = sim;
+        this.evolutionInformation = sim.evolutionInformation;
+        add(evolutionInformation.l);
+        evolutionInformation.l.setText("--");
+        addMouseMotionListener(this);
     }
 
     @Override
@@ -28,22 +37,48 @@ public class MapRenderer extends JPanel {
 
         g.setColor(new Color(0, 160, 36));
         g.fillRect(map.lowerLeftJgl.x * widthScale,
-                map.lowerLeftJgl.y * heightScale,
+                38+map.lowerLeftJgl.y * heightScale,
                 WorldMap.parameters.jungleWidth * widthScale,
-                WorldMap.parameters.jungleHeight * heightScale);
+                 WorldMap.parameters.jungleHeight * heightScale);
 
         for (Grass grass : map.grassList) {
             g.setColor(grass.toColor());
-            int y = (grass.grassPosition).y * heightScale;
+            int y = (WorldMap.parameters.worldHeight - (grass.grassPosition).y) * heightScale;
             int x = (grass.grassPosition).x * widthScale;
             g.fillOval(x, y, widthScale, heightScale);
         }
 
         for (Animal a : map.animalList) {
             g.setColor(a.toColor());
-            int y = (a.position).y * heightScale;
+            int y = (WorldMap.parameters.worldHeight - (a.position).y) * heightScale;
             int x = (a.position).x * widthScale;
             g.fillOval(x, y, widthScale, heightScale);
         }
+    }
+
+    public void mouseMoved(MouseEvent e) {
+        Vector2d position = new Vector2d(e.getX()/Math.round(getWidth() / WorldMap.parameters.worldWidth),WorldMap.parameters.worldHeight - e.getY()/Math.round(getHeight() / WorldMap.parameters.worldHeight));
+        if(map.objectAt(position) != null) {
+            evolutionInformation.l.setText(position.toString());
+            evolutionInformation.what = "trawę";
+            if((this.map.animalMap.get(position) != null && !this.map.animalMap.get(position).isEmpty())) {
+                Animal temp = this.map.animalMap.get(position).getFirst();
+                evolutionInformation.what = "zwierzę";
+                evolutionInformation.animalChildren = temp.children.toString();
+                evolutionInformation.animalEnergy = temp.energy.toString();
+                evolutionInformation.genotype = temp.genotype.toString();
+            } else evolutionInformation.grassEnergy = map.grassMap.get(position).energyValue.toString();
+
+        }
+        else {
+            evolutionInformation.l.setText(position.toString());
+            evolutionInformation.pos = position.toString();
+            if(map.isStep(position)) evolutionInformation.what = "step";
+            else evolutionInformation.what = "dżunglę";
+        }
+    }
+
+    public void mouseDragged(MouseEvent e) {
+
     }
 }

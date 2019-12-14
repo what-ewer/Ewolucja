@@ -12,10 +12,12 @@ public class Simulation implements ActionListener {
     public MapRenderer mapRenderer;
     public EvolutionInformation evolutionInformation;
     public Timer timer;
+    public String simulationName;
 
-    public Simulation(WorldMap map) {
+    public Simulation(WorldMap map, String simulationName) {
 
         this.map = map;
+        this.simulationName = simulationName;
 
         timer = new Timer(WorldMap.parameters.refreshTime, this);
 
@@ -24,11 +26,11 @@ public class Simulation implements ActionListener {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
 
-        mapRenderer = new MapRenderer(map, this);
-        mapRenderer.setSize(new Dimension(1, 1));
-
         evolutionInformation = new EvolutionInformation(map, this);
         evolutionInformation.setSize(1, 1);
+
+        mapRenderer = new MapRenderer(map, this);
+        mapRenderer.setSize(new Dimension(1, 1));
 
         frame.add(mapRenderer);
         frame.add(evolutionInformation);
@@ -55,6 +57,7 @@ public class Simulation implements ActionListener {
         map.moveTheAnimals();
         map.eatTheGrass();
         map.copulateAll();
+        evolutionInformation.totalDays++;
         for(int i = 0; i < WorldMap.parameters.grassPerDay; i++) map.generateGrass();
 
     }

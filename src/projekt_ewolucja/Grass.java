@@ -22,7 +22,7 @@ public class Grass {
 
     @Override
     public String toString() {
-        return "*";
+        return (this.grassPosition.toString() + "\nWartość energetyczna: " + this.energyValue);
     }
 
     public Color toColor() {

@@ -10,9 +10,6 @@ public enum Direction {
     WEST,
     NORTH_WEST;
 
-    private static final String[] dirString = new String[]{"A", "A", "A", "A", "A", "A", "A", "A"};
-    //plan był strzałki, ale utf-16 nie działało mi w konsolce windowsa :/
-
     public Integer directionToNumber() throws IllegalArgumentException {
         switch (this) {
             case NORTH:
@@ -80,11 +77,6 @@ public enum Direction {
             default:
                 throw new IllegalArgumentException("Wystąpił problem z orientacją zwierzęcia");
         }
-    }
-
-    @Override
-    public String toString() {
-        return dirString[this.ordinal()];
     }
 }
 

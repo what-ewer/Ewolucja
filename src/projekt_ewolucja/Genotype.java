@@ -76,4 +76,13 @@ public class Genotype {
     public static Integer getDiffGenes() {
         return diffGenes;
     }
+
+    @Override
+    public String toString() {
+        int[] eachGene = new int[diffGenes];
+        for (int i = 0; i < genotypeSize - 1; i++) {
+            eachGene[this.genes[i]]++;
+        }
+        return Arrays.toString(eachGene);
+    }
 }
