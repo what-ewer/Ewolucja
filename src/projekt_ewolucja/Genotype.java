@@ -6,9 +6,9 @@ import java.util.List;
 import java.util.Random;
 
 public class Genotype {
-    private static final Integer genotypeSize = 32;
-    private static final Integer diffGenes = 8;
-    private Integer[] genes;
+    public static final Integer genotypeSize = 32;
+    public static final Integer diffGenes = 8;
+    public Integer[] genes;
 
     public Genotype() {
         this.genes = new Integer[genotypeSize];

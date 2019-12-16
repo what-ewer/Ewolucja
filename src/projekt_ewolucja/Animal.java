@@ -47,7 +47,19 @@ public class Animal {
         return (this.position.toString() + "\nIlość dzieci: " + this.children + "\nIlość energii: " + this.energy);
     }
 
+    public Integer animalsDominatingGene(){
+        Integer[] genes = genotype.genes;
+        int[] minimalGenes = new int[Genotype.diffGenes];
+        for (int i = 0; i < Genotype.genotypeSize - 1; i++) {
+            minimalGenes[genes[i]]++;
+        }
+        Integer max = 0;
+        for(int i = 0; i < Genotype.getDiffGenes(); i++) if (minimalGenes[i] > minimalGenes[max]) max = i;
+        return max;
+    }
+
     public Color toColor() {
+        if (this.animalsDominatingGene().equals(this.map.getDominatingGene())) return new Color(0,0,0);
         if (map.deadAnimals == 0) return new Color(224, 137, 41);
         if (this.lifespan < (this.map.lifespan/map.deadAnimals)) return new Color(224, 137, 41);
         return new Color(224, 17, 26);

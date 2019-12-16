@@ -77,18 +77,21 @@ public class EvolutionInformation extends JPanel {
         g.drawString("Podczas symulacji zwierzęta zjadły: ", 10, 198) ;
         g.drawString(this.map.eatenGrass + " trawy", 10 , 213);
 
+        String avgChildren = String.format("%.2f", (double)this.map.children/map.animalList.size());
         g.drawString("Średnia ilość dzieci żywych zwierząt: ", 10, 238) ;
-        if(map.animalList.size() > 0) g.drawString((double)this.map.children/map.animalList.size() + "", 10 , 253);
+        if(map.animalList.size() > 0) g.drawString(avgChildren, 10 , 253);
         else g.drawString("0", 10 , 253);
 
+        String avgLifespan = String.format("%.2f", (double)this.map.lifespan/this.map.deadAnimals);
         g.drawString("Średnia długość życia zwierząt: ", 10, 278);
-        if(this.map.deadAnimals > 0) g.drawString((double)this.map.lifespan/this.map.deadAnimals + "", 10 , 293);
+        if(this.map.deadAnimals > 0) g.drawString(avgLifespan, 10 , 293);
         else g.drawString("0", 10 , 293);
 
         Integer energy = 0;
         for(Animal a : map.animalList) energy+= a.energy;
+        String avgEnergy = String.format("%.2f", (double)energy/map.animalList.size());
         g.drawString("Średni poziom energii zwierząt: " , 10, 318);
-        if(map.animalList.size() > 0) g.drawString((double)energy/map.animalList.size() + "", 10 , 333);
+        if(map.animalList.size() > 0) g.drawString(avgEnergy, 10 , 333);
         else g.drawString("0", 10 , 333);
 
         g.drawString("Kursor wskazuje na: " + this.what, 10, 358) ;
@@ -121,34 +124,39 @@ public class EvolutionInformation extends JPanel {
         g.setColor(Color.black);
         g.drawString("Zwierzę z energią większą niż avg", 30, 543) ;
 
-        g.setColor(new Color(185, 224, 111));
-        g.fillRect(10, 553, 10, 10);
+        g.setColor(new Color(0,0,0));
+        g.fillOval(10, 553,10,10);
         g.setColor(Color.black);
-        g.drawString("Mapa sawanny", 30, 563) ;
+        g.drawString("Zwierzę z dominującym genem", 30, 563) ;
 
-        g.setColor(new Color(0, 160, 36));
+        g.setColor(new Color(185, 224, 111));
         g.fillRect(10, 573, 10, 10);
         g.setColor(Color.black);
-        g.drawString("Mapa dżungli", 30, 583) ;
+        g.drawString("Mapa sawanny", 30, 583) ;
+
+        g.setColor(new Color(0, 160, 36));
+        g.fillRect(10, 593, 10, 10);
+        g.setColor(Color.black);
+        g.drawString("Mapa dżungli", 30, 603) ;
 
         if(animal != null) {
-            g.drawString("Obserwowane zwierzę: ", 10 , 613);
+            g.drawString("Obserwowane zwierzę: ", 10 , 633);
             if(animal.energy.equals(0)) {
-                g.drawString("Umarło: " + date + " dnia", 10, 628);
-                g.drawString("Miało " + animal.children.toString() + " dzieci", 10, 643);
-                g.drawString("Przeżyło " + animal.lifespan + " dni", 10, 658);
-                g.drawString("Genotyp: " + animal.genotype.toString(), 10, 673);
+                g.drawString("Umarło: " + date + " dnia", 10, 648);
+                g.drawString("Miało " + animal.children.toString() + " dzieci", 10, 663);
+                g.drawString("Przeżyło " + animal.lifespan + " dni", 10, 678);
+                g.drawString("Genotyp: " + animal.genotype.toString(), 10, 693);
             }
             else{
-                g.drawString("Położenie: " + animal.position.realCoords().toString(), 10, 628);
-                g.drawString("Ilość dzieci: " + animal.children.toString(), 10, 643);
-                g.drawString("Ilość energii: " + animal.energy.toString(), 10, 658);
-                g.drawString("Długość życia: " + animal.lifespan.toString(), 10, 673);
-                g.drawString("Genotyp: " + animal.genotype.toString(), 10, 688);
+                g.drawString("Położenie: " + animal.position.realCoords().toString(), 10, 648);
+                g.drawString("Ilość dzieci: " + animal.children.toString(), 10, 663);
+                g.drawString("Ilość energii: " + animal.energy.toString(), 10, 678);
+                g.drawString("Długość życia: " + animal.lifespan.toString(), 10, 693);
+                g.drawString("Genotyp: " + animal.genotype.toString(), 10, 708);
                 date = totalDays+1;
             }
         }
-        g.drawString("Dominujący gen: " + map.getDominatingGene().toString(), 10, 708);
+        g.drawString("Dominujący gen: " + map.getDominatingGene().toString(), 10, 728);
 
         if(WorldMap.parameters.saveEveryN != 0){
             if (totalDays.equals(WorldMap.parameters.saveEveryN)){
