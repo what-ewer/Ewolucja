@@ -261,6 +261,22 @@ public class SettingsChanger extends JPanel {
                 parameters.saveEveryN = Integer.parseInt(saveEveryNField.getText());
                 parameters.twoSimulations = Integer.parseInt(twoSimulationsField.getText());
 
+                worldWidthField.setEditable(false);
+                worldHeightField.setEditable(false);
+                jungleWidthField.setEditable(false);
+                jungleHeightField.setEditable(false);
+                numberOfDaysField.setEditable(false);
+                refreshTimeField.setEditable(false);
+                animalInitialEnergyField.setEditable(false);
+                energyToCopulateField.setEditable(false);
+                animalsToSpawnField.setEditable(false);
+                movementValueField.setEditable(false);
+                grassStartingValueField.setEditable(false);
+                growValueField.setEditable(false);
+                grassPerDayField.setEditable(false);
+                saveEveryNField.setEditable(false);
+                twoSimulationsField.setEditable(false);
+
                 WorldMap map1 = new WorldMap(parameters);
 
                 Simulation sim = new Simulation(map1, "sim1");
