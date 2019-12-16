@@ -18,30 +18,33 @@ public class Genotype {
     public Genotype(Animal cat, Animal dog) {
         this();
         System.arraycopy(dog.genotype.genes, 0, this.genes, 0, 21);
-        System.arraycopy(cat.genotype.genes, 21, this.genes, 21, 11);
+        System.arraycopy(cat.genotype.genes, 0, this.genes, 21, 10);
         this.checkGenotypeRequirements();
-        this.Mutation();
+        this.mutation();
+        List<Integer> intList = Arrays.asList(this.genes);
+        Collections.shuffle(intList);
+        intList.toArray(this.genes);
+    }
+
+    public void mutation(){
+        Random rand = new Random();
+        this.genes[genotypeSize-1] = rand.nextInt(diffGenes);
     }
 
     public static Genotype childGenotype(Animal cat, Animal dog) {
         return new Genotype(cat, dog);
     }
 
-    public void Mutation() {
-        Random rand = new Random();
-        this.genes[genotypeSize - 1] = rand.nextInt(diffGenes);
-    }
-
     private void randomGenes() {
         for (int i = 0; i < genotypeSize; i++) this.genes[i] = 0;
         Random rand = new Random();
-        for (int i = 0; i < 32; i++) this.genes[i] = rand.nextInt(diffGenes);
+        for (int i = 0; i < genotypeSize; i++) this.genes[i] = rand.nextInt(diffGenes);
         checkGenotypeRequirements();
     }
 
     public void checkGenotypeRequirements() {
         int[] minimalGenes = new int[diffGenes];
-        for (int i = 0; i < genotypeSize - 1; i++) {
+        for (int i = 0; i < genotypeSize; i++) {
             minimalGenes[this.genes[i]]++;
         }
         for (int i = 0; i < diffGenes; i++) {
@@ -88,7 +91,7 @@ public class Genotype {
     @Override
     public String toString() {
         int[] eachGene = new int[diffGenes];
-        for (int i = 0; i < genotypeSize - 1; i++) {
+        for (int i = 0; i < genotypeSize; i++) {
             eachGene[this.genes[i]]++;
         }
         return Arrays.toString(eachGene);
